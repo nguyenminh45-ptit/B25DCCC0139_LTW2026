@@ -1,9 +1,12 @@
 const BUILD_TAG = "rc-5307";
 /* eslint-disable import/first */
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import Layout from './components/Layout';
+import Home from './pages/Home';
+import Play from './pages/Play';
+import Result from './pages/Result';
 import QuestionBank from './pages/QuestionBank';
 import QuestionDetail from './pages/QuestionDetail';
 import NotFound from './pages/NotFound';
@@ -12,6 +15,7 @@ const App = () => {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [playerName, setPlayerName] = useState('');
 
   // Mounting: gọi API, cleanup hủy request
   useEffect(() => {
@@ -36,9 +40,21 @@ const App = () => {
         path="/"
         element={<Layout loading={loading} error={error} buildTag={BUILD_TAG} />}
       >
-        <Route index element={<h2>Trang chủ</h2>} />
-        <Route path="play" element={<h2>Màn hình thi</h2>} />
-        <Route path="result" element={<h2>Kết quả</h2>} />
+        <Route
+          index
+          element={<Home playerName={playerName} setPlayerName={setPlayerName} />}
+        />
+        <Route
+          path="play"
+          element={
+            playerName.trim() ? (
+              <Play questions={questions} playerName={playerName} />
+            ) : (
+              <Navigate to="/" replace />
+            )
+          }
+        />
+        <Route path="result" element={<Result />} />
         <Route path="history" element={<h2>Lịch sử</h2>} />
         <Route path="questions" element={<QuestionBank questions={questions} />} />
         <Route
