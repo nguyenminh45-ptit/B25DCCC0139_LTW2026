@@ -3,8 +3,10 @@ const ScoreBoard = ({ score, answers, index, total }) => (
     <p className="score">{`Điểm: ${score}`}</p>
     <div className="cells">
       {Array.from({ length: total }, (_, i) => {
+        const a = answers[i];
         let cls = 'cell';
-        if (answers[i] && answers[i].correct) cls += ' ok';
+        if (a && a.correct) cls += ' ok';
+        else if (a && a.saved) cls += ' saved';
         if (i === index) cls += ' current';
         return <span key={i} className={cls}>{i + 1}</span>;
       })}

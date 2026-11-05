@@ -1,8 +1,9 @@
 import AnswerButton from './AnswerButton';
 import { LEVELS, LETTERS } from '../data';
 
-const QuestionCard = ({ question, number, total, status, selected, onChoose }) => {
+const QuestionCard = ({ question, number, total, status, selected, hidden, onChoose }) => {
   const getState = (i) => {
+    if (hidden.includes(i)) return 'hidden';
     if (status === 'locked' && selected === i) return 'chosen';
     if (status === 'revealed') {
       if (i === question.answer) return 'correct';

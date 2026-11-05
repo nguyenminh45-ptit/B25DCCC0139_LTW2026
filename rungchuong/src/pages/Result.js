@@ -4,6 +4,7 @@ const HEADLINES = {
   gold: 'Chúc mừng! Bạn đã rung chuông vàng (đúng cả 15 câu)',
   wrong: 'Bạn đã bị loại (trả lời sai)',
   timeout: 'Hết giờ!',
+  done: 'Bạn đã hoàn thành 15 câu',
 };
 
 const Result = () => {
