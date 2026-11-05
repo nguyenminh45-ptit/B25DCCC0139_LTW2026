@@ -1,0 +1,37 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; background: #f4f6fb; color: #222; }
+.navbar { display: flex; gap: 20px; padding: 14px 24px; background: #fff; border-bottom: 1px solid #ddd; }
+.nav-link { color: #333; text-decoration: none; }
+.nav-link.active { color: #1976d2; text-decoration: underline; }
+.content { max-width: 800px; margin: 24px auto; padding: 0 16px; }
+.error { color: #c62828; }
+button { padding: 8px 16px; border: 1px solid #1976d2; background: #1976d2; color: #fff; border-radius: 6px; cursor: pointer; }
+button:disabled { background: #bbb; border-color: #bbb; cursor: not-allowed; }
+input, select { padding: 6px 8px; }
+.filters { display: flex; gap: 16px; margin-bottom: 8px; flex-wrap: wrap; }
+table { width: 100%; border-collapse: collapse; background: #fff; margin-top: 12px; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+.options { list-style: none; padding: 0; }
+.options li { padding: 8px 12px; margin-bottom: 6px; background: #fff; border-radius: 6px; }
+.options li.correct { background: #4caf50; color: #fff; }
+.record { font-weight: bold; color: #e65100; }
+.home form { display: flex; gap: 12px; align-items: center; margin-top: 16px; }
+.scoreboard .score { font-size: 20px; font-weight: bold; margin: 0 0 8px; }
+.cells { display: flex; gap: 4px; flex-wrap: wrap; }
+.cell { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: #ccc; border: 2px solid transparent; border-radius: 4px; font-size: 13px; }
+.cell.ok { background: #4caf50; color: #fff; }
+.cell.saved { background: #ff9800; color: #fff; }
+.cell.current { border: 3px solid #000; }
+.timer { font-size: 22px; font-weight: bold; }
+.timer.danger { color: #d32f2f; }
+.card { background: #fff; padding: 16px; border-radius: 8px; }
+.meta { color: #666; margin: 0; }
+.answers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.answer { background: #e3eaf5; color: #222; border: 1px solid #b0bec5; padding: 14px; text-align: left; }
+.answer:disabled { cursor: default; }
+.answer.chosen { background: #ffeb3b; color: #222; border-color: #fbc02d; }
+.answer.correct { background: #4caf50; color: #fff; border-color: #388e3c; }
+.answer.wrong { background: #e53935; color: #fff; border-color: #b71c1c; }
+.answer.hidden { visibility: hidden; }
+.helpers { display: flex; gap: 12px; margin-top: 16px; }
+.result .row { display: flex; gap: 12px; margin-top: 16px; }
